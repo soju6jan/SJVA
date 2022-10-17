@@ -1,0 +1,7 @@
+title: "SJVA"
+version: "1.0.0"
+package_name: "sjva"
+developer: "soju6jan"
+description: "SJVA 인증 & 사이트 연동"
+home: "https://github.com/soju6jan/sjva"
+more: "https://raw.githubusercontent.com/soju6jan/sjva/main/README.md"
