@@ -37,12 +37,12 @@ setting = {
     'menu': None,
     'setting_menu': {
         'uri': f"sjva/setting/auth",
-        'name': 'SJVA 인증',
+        'name': 'SJVA 설정',
     },
     'default_route': 'normal',
 }
 WEB_DIRECT_URL= "http://52.78.103.230:49734"
-DEFINE_DEV = False
+DEFINE_DEV = True
 
 
 from plugin import *

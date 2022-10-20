@@ -1,22 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div>
-  {{ macros.m_button_group([['globalSettingSaveBtn', '설정 저장']])}}
-  {{ macros.m_row_start('5') }}
-  {{ macros.m_row_end() }}
-  <form id='setting' name='setting'>
+{{ macros.m_button_group([['globalSettingSaveBtn', '설정 저장']])}}
+{{ macros.m_row_start('5') }}
+{{ macros.m_row_end() }}
+
+<nav>
+  {{ macros.m_tab_head_start() }}
+    {{ macros.m_tab_head('auth', '인증', true) }}
+    {{ macros.m_tab_head('wavve', '웨이브', false) }}
+  {{ macros.m_tab_head_end() }}
+</nav>
+
+<form id='setting' name='setting'>
+<div class="tab-content" id="nav-tabContent">
+  
+{{ macros.m_tab_content_start('auth', true) }}
   {{ macros.setting_input_text('sjva_id', '홈페이지 ID', value=arg['sjva_id'], desc=['APIKEY 변경시 재인증해야 합니다.'], col='3') }}
   {{ macros.info_text_and_buttons('apikey', 'APIKEY', [['globalLinkBtn','설정으로 이동', [['url', '/system/setting/auth']]]], value=arg['apikey'], desc=None) }}
   {{ macros.info_text_and_buttons('auth_result', '인증상태', [['do_auth_btn', '인증하기']], value=arg['auth_result']['desc'], desc=None) }}
-  </form>
+{{ macros.m_tab_content_end() }} 
 
+{{ macros.m_tab_content_start('wavve', false) }}
+  {{ macros.setting_input_textarea('site_wavve_credential', 'Credential', value=arg['site_wavve_credential'], row='3') }}
+  {{ macros.setting_checkbox('site_wavve_use_proxy', 'Proxy 사용', value=arg['site_wavve_use_proxy'], desc=None) }}
+  <div id="site_wavve_use_proxy_div" class="collapse">
+    {{ macros.setting_input_text('site_wavve_proxy_url', 'Proxy URL', value=arg['site_wavve_proxy_url'], desc=None) }}
+  </div>
+{{ macros.m_tab_content_end() }} 
+
+</form>
 </div>
+
 
 
 <script type="text/javascript">
 
 $(document).ready(function(){
+  use_collapse("site_wavve_use_proxy");
+});
+
+$('#site_wavve_use_proxy').change(function() {
+  use_collapse('site_wavve_use_proxy');
 });
 
 $("body").on('click', '#do_auth_btn', function(e) {
