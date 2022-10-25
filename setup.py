@@ -61,3 +61,5 @@ except Exception as e:
     P.logger.error(f'Exception:{str(e)}')
     P.logger.error(traceback.format_exc())
 
+
+# python -m flaskfarm.cli.code_encode --source=C:\work\FlaskFarm\data\LOADING2\sjva
