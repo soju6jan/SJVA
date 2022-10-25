@@ -42,7 +42,7 @@ setting = {
     'default_route': 'normal',
 }
 WEB_DIRECT_URL= "http://52.78.103.230:49734"
-DEFINE_DEV = True
+DEFINE_DEV = False
 
 
 from plugin import *
