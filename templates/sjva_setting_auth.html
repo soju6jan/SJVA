@@ -46,8 +46,7 @@ $('#site_wavve_use_proxy').change(function() {
 
 $("body").on('click', '#do_auth_btn', function(e) {
   e.preventDefault();
-  globalSendCommand('do_auth', $('#sjva_id').val(), null, null, null, function(ret){
-    console.log(ret)
+  globalSendCommand('do_auth', $('#sjva_id').val(), null, null, function(ret){
     $("#auth_result").html(ret.auth_result.desc);
   });
 });
