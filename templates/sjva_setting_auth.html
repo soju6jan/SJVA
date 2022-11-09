@@ -13,7 +13,6 @@
 
 <form id='setting' name='setting'>
 <div class="tab-content" id="nav-tabContent">
-  
 {{ macros.m_tab_content_start('auth', true) }}
   {{ macros.setting_input_text('sjva_id', '홈페이지 ID', value=arg['sjva_id'], desc=['APIKEY 변경시 재인증해야 합니다.'], col='3') }}
   {{ macros.info_text_and_buttons('apikey', 'APIKEY', [['globalLinkBtn','설정으로 이동', [['url', '/system/setting/auth']]]], value=arg['apikey'], desc=None) }}
@@ -22,12 +21,9 @@
 </form>
 </div>
 
-
-
 <script type="text/javascript">
 
 $(document).ready(function(){
-  
 });
 
 $("body").on('click', '#do_auth_btn', function(e) {
@@ -36,9 +32,6 @@ $("body").on('click', '#do_auth_btn', function(e) {
     $("#auth_result").html(ret.auth_result.desc);
   });
 });
-
-
-
 
 </script>    
 {% endblock %}

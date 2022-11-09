@@ -1,34 +1,3 @@
-"""
-{
-    'uri': __package__,
-    'name': 'SJVA',
-    'list': [
-        {
-            'uri': 'setting',
-            'name': '설정',
-            'list': [
-                {
-                    'uri': 'auth',
-                    'name': '인증',
-                },
-                {
-                    'uri': 'bot',
-                    'name': '텔레그램 봇',
-                }
-            ]
-        },
-        {
-            'uri': 'plugin',
-            'name': '전용 플러그인',
-        },
-        {
-            'uri': 'log',
-            'name': '로그',
-        },
-    ]
-},
-"""
-
 setting = {
     'filepath' : __file__,
     'use_db': True,
@@ -41,9 +10,8 @@ setting = {
     },
     'default_route': 'normal',
 }
-WEB_DIRECT_URL= "http://52.78.103.230:49734"
-DEFINE_DEV = False
 
+DEFINE_DEV = False
 
 from plugin import *
 
@@ -61,5 +29,7 @@ except Exception as e:
     P.logger.error(f'Exception:{str(e)}')
     P.logger.error(traceback.format_exc())
 
+from . import Auth
+P.get_auth_status = Auth.get_auth_status()
 
 # python -m flaskfarm.cli.code_encode --source=C:\work\FlaskFarm\data\LOADING2\sjva
