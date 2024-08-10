@@ -11,14 +11,12 @@ setting = {
     'default_route': 'normal',
 }
 
-DEFINE_DEV = False
-
 from plugin import *
 
 P = create_plugin_instance(setting)
 
 try:
-    if DEFINE_DEV:
+    if os.path.exists(os.path.join(os.path.dirname(__file__), 'mod_setting.py')):
         from .mod_setting import ModuleSetting
     else:
         from support import SupportSC
